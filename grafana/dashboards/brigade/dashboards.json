@@ -99,6 +99,26 @@
       "keepTime": true,
       "tags": [],
       "targetBlank": true,
+      "title": "Jaeger",
+      "tooltip": "Opens Jaeger dashboards",
+      "type": "link",
+      "url": "https://jaeger.[[hostname]]"
+    },
+    {
+      "icon": "dashboard",
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Vitess",
+      "tooltip": "Opens Vitess dashboards",
+      "type": "link",
+      "url": "https://vitess.[[hostname]]"
+    },
+    {
+      "icon": "dashboard",
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
       "title": "OpenTracing",
       "tooltip": "Opens OpenTracing dashboards",
       "type": "link",
@@ -119,30 +139,10 @@
       "keepTime": true,
       "tags": [],
       "targetBlank": true,
-      "title": "rkt",
-      "tooltip": "Opens rkt dashboards",
-      "type": "link",
-      "url": "https://rkt.[[hostname]]"
-    },
-    {
-      "icon": "dashboard",
-      "keepTime": true,
-      "tags": [],
-      "targetBlank": true,
       "title": "CNI",
       "tooltip": "Opens CNI dashboards",
       "type": "link",
       "url": "https://cni.[[hostname]]"
-    },
-    {
-      "icon": "dashboard",
-      "keepTime": true,
-      "tags": [],
-      "targetBlank": true,
-      "title": "Jaeger",
-      "tooltip": "Opens Jaeger dashboards",
-      "type": "link",
-      "url": "https://jaeger.[[hostname]]"
     },
     {
       "icon": "dashboard",
@@ -163,16 +163,6 @@
       "tooltip": "Opens TUF dashboards",
       "type": "link",
       "url": "https://tuf.[[hostname]]"
-    },
-    {
-      "icon": "dashboard",
-      "keepTime": true,
-      "tags": [],
-      "targetBlank": true,
-      "title": "Vitess",
-      "tooltip": "Opens Vitess dashboards",
-      "type": "link",
-      "url": "https://vitess.[[hostname]]"
     },
     {
       "icon": "dashboard",
@@ -269,6 +259,16 @@
       "keepTime": true,
       "tags": [],
       "targetBlank": true,
+      "title": "CloudEvents",
+      "tooltip": "Opens CloudEvents projects dashboards",
+      "type": "link",
+      "url": "https://cloudevents.[[hostname]]"
+    },
+    {
+      "icon": "dashboard",
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
       "title": "SPIFFE",
       "tooltip": "Opens SPIFFE projects dashboards",
       "type": "link",
@@ -283,16 +283,6 @@
       "tooltip": "Opens SPIRE projects dashboards",
       "type": "link",
       "url": "https://spire.[[hostname]]"
-    },
-    {
-      "icon": "dashboard",
-      "keepTime": true,
-      "tags": [],
-      "targetBlank": true,
-      "title": "CloudEvents",
-      "tooltip": "Opens CloudEvents projects dashboards",
-      "type": "link",
-      "url": "https://cloudevents.[[hostname]]"
     },
     {
       "icon": "dashboard",
@@ -443,6 +433,36 @@
       "tooltip": "Opens intoto projects dashboards",
       "type": "link",
       "url": "https://intoto.[[hostname]]"
+    },
+    {
+      "icon": "dashboard",
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Strimzi",
+      "tooltip": "Opens Strimzi projects dashboards",
+      "type": "link",
+      "url": "https://strimzi.[[hostname]]"
+    },
+    {
+      "icon": "dashboard",
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "KubeVirt",
+      "tooltip": "Opens KubeVirt projects dashboards",
+      "type": "link",
+      "url": "https://kubevirt.[[hostname]]"
+    },
+    {
+      "icon": "dashboard",
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Longhorn",
+      "tooltip": "Opens Longhorn projects dashboards",
+      "type": "link",
+      "url": "https://longhorn.[[hostname]]"
     },
     {
       "icon": "dashboard",
@@ -636,10 +656,10 @@
     {
       "content": "[[docs]]",
       "gridPos": {
-        "h": 9,
+        "h": 10,
         "w": 24,
         "x": 0,
-        "y": 64
+        "y": 66
       },
       "id": 6,
       "links": [],

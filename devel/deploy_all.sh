@@ -225,7 +225,16 @@ do
     PROJ=flux                PROJDB=flux           PROJREPO="fluxcd/flux"                     ORGNAME=Flux              PORT=3039 ICON=flux           GRAFSUFF=flux           GA="UA-108085315-50" ./devel/deploy_proj.sh || exit 51
   elif [ "$proj" = "intoto" ]
   then
-    PROJ=intoto              PROJDB=intoto         PROJREPO="in-toto/in-toto"                 ORGNAME="in-toto"         PORT=3040 ICON=cncf           GRAFSUFF=intoto         GA="UA-145264316-1"  ./devel/deploy_proj.sh || exit 52
+    PROJ=intoto              PROJDB=intoto         PROJREPO="in-toto/in-toto"                 ORGNAME="in-toto"         PORT=3040 ICON=intoto         GRAFSUFF=intoto         GA="UA-145264316-1"  ./devel/deploy_proj.sh || exit 52
+  elif [ "$proj" = "strimzi" ]
+  then
+    PROJ=strimzi             PROJDB=strimzi        PROJREPO="strimzi/strimzi-kafka-operator"  ORGNAME=Strimzi           PORT=3041 ICON=strimzi        GRAFSUFF=strimzi        GA="UA-145264316-2"  ./devel/deploy_proj.sh || exit 53
+  elif [ "$proj" = "kubevirt" ]
+  then
+    PROJ=kubevirt            PROJDB=kubevirt       PROJREPO="kubevirt/kubevirt"               ORGNAME=KubeVirt          PORT=3042 ICON=kubevirt       GRAFSUFF=kubevirt       GA="UA-145264316-3"  ./devel/deploy_proj.sh || exit 60
+  elif [ "$proj" = "longhorn" ]
+  then
+    PROJ=longhorn            PROJDB=longhorn       PROJREPO="longhorn/longhorn"               ORGNAME=Longhorn          PORT=3043 ICON=longhorn       GRAFSUFF=longhorn       GA="UA-145264316-4"  ./devel/deploy_proj.sh || exit 61
   elif [ "$proj" = "opencontainers" ]
   then
     PROJ=opencontainers      PROJDB=opencontainers PROJREPO="opencontainers/runc"             ORGNAME=OCI               PORT=3100 ICON="-"            GRAFSUFF=opencontainers GA="UA-108085315-19" ./devel/deploy_proj.sh || exit 32
@@ -238,6 +247,27 @@ do
   elif [ "$proj" = "knative" ]
   then
     PROJ=knative             PROJDB=knative        PROJREPO="knative/serving"                 ORGNAME=Knative           PORT=3103 ICON=cncf           GRAFSUFF=knative        GA="-"               ./devel/deploy_proj.sh || exit 41
+  elif [ "$proj" = "sam" ]
+  then
+    PROJ=sam                 PROJDB=sam            PROJREPO="awslabs/serverless-application-model" ORGNAME="AWS SAM"    PORT=3104 ICON=cncf           GRAFSUFF=sam            GA="-"               ./devel/deploy_proj.sh || exit 54
+  elif [ "$proj" = "azf" ]
+  then
+    PROJ=azf                 PROJDB=azf            PROJREPO="Azure/azure-webjobs-sdk"         ORGNAME=AZF               PORT=3105 ICON=cncf           GRAFSUFF=azf            GA="-"               ./devel/deploy_proj.sh || exit 55
+  elif [ "$proj" = "riff" ]
+  then
+    PROJ=riff                PROJDB=riff           PROJREPO="projectriff/riff"                ORGNAME="Pivotal Riff"    PORT=3106 ICON=cncf           GRAFSUFF=riff           GA="-"               ./devel/deploy_proj.sh || exit 56
+  elif [ "$proj" = "fn" ]
+  then
+    PROJ=fn                  PROJDB=fn             PROJREPO="fnproject/fn"                    ORGNAME="Oracle Fn"       PORT=3107 ICON=cncf           GRAFSUFF=fn             GA="-"               ./devel/deploy_proj.sh || exit 57
+  elif [ "$proj" = "openwhisk" ]
+  then
+    PROJ=openwhisk           PROJDB=openwhisk      PROJREPO="apache/openwhisk"                ORGNAME="Apache OpenWhisk" PORT=3108 ICON=cncf          GRAFSUFF=openwhisk      GA="-"               ./devel/deploy_proj.sh || exit 58
+  elif [ "$proj" = "openfaas" ]
+  then
+    PROJ=openfaas            PROJDB=openfaas       PROJREPO="openfaas/faas"                   ORGNAME="OpenFaaS"        PORT=3109 ICON=cncf           GRAFSUFF=openfaas       GA="-"               ./devel/deploy_proj.sh || exit 59
+  elif [ "$proj" = "cii" ]
+  then
+    PROJ=cii                 PROJDB=cii            PROJREPO="not/used"                        ORGNAME="CII"             PORT=3110 ICON=cncf           GRAFSUFF=cii            GA="-"               ./devel/deploy_proj.sh || exit 62
   elif [ "$proj" = "all" ]
   then
     PROJ=all                 PROJDB=allprj         PROJREPO="not/used"                        ORGNAME="All CNCF"        PORT=3254 ICON=cncf           GRAFSUFF=all            GA="UA-108085315-20" ./devel/deploy_proj.sh || exit 36

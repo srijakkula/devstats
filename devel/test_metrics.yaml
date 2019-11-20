@@ -1,10 +1,15 @@
 ---
 metrics:
-  - name: Users stats
+  - name: Companies summary
+    sql: doc_committers_hist
+    series_name_or_func: multi_row_single_column
+    histogram: true
+    annotations_ranges: true
+    merge_series: hcom
+  - name: Documentation committers stats
     series_name_or_func: multi_row_multi_column
-    sqls: [user_activity, user_activity_issues, user_activity_prs]
-    periods: d,w,m,q,y
+    sql: doc_committers
+    periods: d,w,m,q
     aggregate: 1,7
-    skip: w7,m7,q7,y7
-    multi_value: true
-    merge_series: user_activity
+    skip: d,w7,m7,q7
+    merge_series: doc_committers

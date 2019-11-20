@@ -471,6 +471,37 @@ where
   org_login in ('in-toto')
 ;
 
+-- Strimzi
+update
+  gha_repos
+set
+  repo_group = 'Strimzi',
+  alias = 'Strimzi'
+where
+  org_login in ('strimzi')
+  or name in ('EnMasseProject/barnabas', 'ppatierno/barnabas', 'ppatierno/kaas')
+;
+
+-- KubeVirt
+update
+  gha_repos
+set
+  repo_group = 'KubeVirt',
+  alias = 'KubeVirt'
+where
+  org_login in ('kubevirt')
+;
+
+-- Longhorn
+update
+  gha_repos
+set
+  repo_group = 'Longhorn',
+  alias = 'Longhorn'
+where
+  org_login in ('longhorn')
+;
+
 -- CNCF
 update
   gha_repos

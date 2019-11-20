@@ -18,7 +18,7 @@ This file describes how to add new project on the test and production servers.
 - To identify repo and/or org name changes, date ranges for entrire projest use `util_sh/(repo|org)_name_changes_bigquery.sh org|org/repo`. You may need to update `util_sql/(org_repo)_name_changes_bigquery.sql` to include newest months.
 - Main repo can be empty `''` - in this case only two annotations will be added: 'start date - CNCF join date' and 'CNCF join date - now".
 - CNCF join dates are listed [here](https://github.com/cncf/toc#projects).
-- Update projects list files: `devel/all_prod_dbs.txt devel/all_prod_projects.txt devel/all_test_dbs.txt devel/all_test_projects.txt util_sh/affs_test.sh util_sh/affs_prod.sh CONTRIBUTORS.md devel/get_icon_type.sh devel/get_icon_source.sh`.
+- Update projects list files: `devel/all_prod_dbs.txt devel/all_prod_projects.txt devel/all_test_dbs.txt devel/all_test_projects.txt util_sh/affs_test.sh util_sh/affs_prod.sh CONTRIBUTORS.md devel/get_icon_type.sh devel/get_icon_source.sh devel/add_single_metric.sh`.
 - Add this new project config to 'All' project in `projects.yaml all/psql.sh grafana/dashboards/all/dashboards.json scripts/all/repo_groups.sql util_sh/calculate_hours.sh`.
 - Add entire new project as a new repo group in 'All' project.
 - Update `devel/generate_actors_nonlf.sh`, possibly other `devel/generate_actors_*.sh` files.
@@ -26,10 +26,10 @@ This file describes how to add new project on the test and production servers.
 - Review `grafana/copy_artwork_icons.sh apache/www/copy_icons.sh grafana/create_images.sh grafana/change_title_and_icons_all.sh` - maybe you need to add special case. Icon related scripts are marked 'ARTWORK'.
 - Copy setup scripts and then adjust them: `cp -R oldproject/ projectname/`, `vim projectname/*`. Most them can be shared for all projects in `./shared/`, usually only `psql.sh` is project specific.
 - Update automatic deploy script: `./devel/deploy_all.sh`.
-- Some projects should not be added to 'All CNCF' (like openconatiners, istio, spinnaker, knative, linux, zephyr), update `devel/deploy_proj.sh` in such cases.
+- Some projects should not be added to 'All CNCF' (like openconatiners, istio, spinnaker, knative, linux, zephyr, sam, azf, riff, fn, openwhisk, openfaas, nodejs, cii), update `devel/deploy_proj.sh` in such cases.
 - Copy `metrics/oldproject` to `metrics/projectname`. Update `./metrics/projectname/vars.yaml` file.
 - `cp -Rv scripts/oldproject/ scripts/projectname`, `vim scripts/projectname/*`. Usually it is only `repo_groups.sql` and in simple cases it can fallback to `scripts/shared/repo_groups.sql`, you can skip copy then.
-- `cp -Rv grafana/oldproject/ grafana/projectname/` and then update files. Usually `%s/oldproject/newproject/g|w|next`.
+- `cp -Rv grafana/oldproject/ grafana/projectname/` and then update files. Usually `%s/Oldproject/Newproject/g`, `%s/oldproject/newproject/g|w|next`.
 - Try to source from Grafana with most similar project start data: `cp -Rv grafana/dashboards/oldproject/ grafana/dashboards/projectname/` and then update files.  Use `devel/mass_replace.sh` script, it contains some examples in the comments.
 - Something like this: `` MODE=ss0 FROM='"oldproject"' TO='"newproject"' FILES=`find ./grafana/dashboards/newproject -type f -iname '*.json'` ./devel/mass_replace.sh ``.
 - Update `grafana/dashboards/proj/dashboards.json` for all already existing projects, add new project using `devel/mass_replace.sh` or `devel/replace.sh`.
@@ -48,7 +48,7 @@ This file describes how to add new project on the test and production servers.
 - You should visit all dashboards and adjust date ranges and for some dashboards automatically selected values.
 - Final deploy script is: `./devel/deploy_all.sh`. It should do all deployment automatically on the prod server. Follow all code from this script (eventually run some parts manually, the final version should do full deploy OOTB).
 - If added disabled project, remember to add it to `crontab -e` via `GHA2DB_PROJECTS_OVERRIDE="+new_disabled_project"`.
-- Also add in another devstats repositories, follow `cncf/devstats-helm:ADDING_NEW_PROJECTS.md`.
+- Also add in other devstats repositories, follow `cncf/devstats-helm:ADDING_NEW_PROJECTS.md`.
 
 # Updating artwork icons
 
@@ -56,4 +56,4 @@ This file describes how to add new project on the test and production servers.
 
 # Graduating projects
 
-- See [graduating instructions](https://github.com/cncf/devstats/blob/master/GRADUATING.md).
+- See [graduating instructions](https://github.com/cncf/devstats/blob/master/GRADUATING.md). This can also be used for moving to Incubation state or Archived state.

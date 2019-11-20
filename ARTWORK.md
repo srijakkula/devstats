@@ -1,5 +1,6 @@
 # Updating icons/artwork
 
+- If given artwork is not merged yet, then go to `~/cncf/artwort` and `git checkout feature-branch-name`.
 - Make sure you have the newest `cncf/artwork` in `~/dev/cncf/artwork` and `cdfoundation/artwork` in `~/dev/cdfoundation/artwork`.
 - Edit all files marked with `ARTWORK`, uncomment `TODO` and update icons: `./find.sh . '*' ARTWORK`.
 - Update: `devel/deploy_all.sh`.
@@ -9,8 +10,10 @@
 - or use `./devel/icons_all.sh`.
 - Run: `./grafana/restart_all_grafanas.sh` (this is optional).
 - Check if new artwork is available for all projects and for the main page.
+- Update `cncf/devstats-helm`:`devstats-helm/values.yaml`.
+- Update `cncf/devstats-helm-lf`:`devstats-helm/values.yaml`.
 
 
 # Other repos
 
-- Run `./find.sh . '*' ARTWORK` on `github.com/cncf/devstats-helm-lf`, `github.com/cncf/devstats-k8s-lf`, `github.com/cncf/devstats-helm-example`, `github.com/cncf/devstats-docker-lf`, `github.com/cncf/devstats-docker-images` and `github.com/cncf/devstats-example`.
+- Run `./find.sh . '*' ARTWORK` on `github.com/cncf/devstats-helm`, `github.com/cncf/devstats-helm-lf`, `github.com/cncf/devstats-helm-example`, `github.com/cncf/devstats-docker-images` and `github.com/cncf/devstats-example`.

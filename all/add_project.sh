@@ -1,6 +1,8 @@
 #!/bin/bash
 # TSDB=1 (will update TSDB)
 # AGET=1 (will fetch allprj database from backup)
+# FORCEADDALL=1|tsdb (will add/merge project into all even if its repo is already present)
+# USE_FLAGS=1 (will check devstats running flag and abort when set, then it will clear provisioned flag for the time of adding new metric and then set it)
 set -o pipefail
 if ( [ -z "$1" ] || [ -z "$2" ] )
 then
@@ -26,15 +28,48 @@ added=`./devel/db.sh psql allprj -tAc "select name from gha_repos where name = '
 if [ ! -z "$added" ]
 then
   echo "Project '$1' is already present in 'All CNCF', repo '$2' exists"
-  exit 0
+  if [ -z "$FORCEADDALL" ]
+  then
+    exit 0
+  else
+    echo 'Adding/merging anyway'
+  fi
 fi
 function finish {
-    sync_unlock.sh
+  sync_unlock.sh
 }
+function flags {
+  if [ ! -z "$USE_FLAGS" ]
+  then
+    ./devel/set_flag.sh allprj provisioned || exit 21
+  else
+    echo 'Not setting provisioned flag'
+  fi
+}
+function finish_flags {
+  finish
+  flags
+}
+if [ ! -z "$USE_FLAGS" ]
+then
+  ./devel/wait_flag.sh allprj devstats_running 0 || exit 19
+  ./devel/clear_flag.sh allprj provisioned || exit 20
+  if [ -z "$TRAP" ]
+  then
+    trap finish_flags EXIT
+  else
+    trap flags EXIT
+  fi
+else
+  echo 'Not checking running flag and clearing provisioned flag'
+  if [ -z "$TRAP" ]
+  then
+    trap finish EXIT
+  fi
+fi
 if [ -z "$TRAP" ]
 then
   sync_lock.sh || exit -1
-  trap finish EXIT
   export TRAP=1
 fi
 if [ ! -z "$AGET" ]
@@ -67,7 +102,7 @@ else
     GHA2DB_PROJECT=all PG_DB=allprj ./shared/setup_repo_groups.sh || exit 16
   fi
 fi
-if [ ! -z "$TSDB" ]
+if ( [ ! -z "$TSDB" ] || [ "$FORCEADDALL" = "tsdb" ] )
 then
   echo "regenerating allprj TS database"
   if [ -f "./all/reinit.sh" ]

@@ -1,11 +1,9 @@
-<h1 id="kubernetes-dashboard">[[full_name]] Developer Activity Counts by Repository Group dashboard</h1>
+<h1 id="dashboard-header">[[full_name]] Developer Activity Counts by Repository Group Table dashboard</h1>
 <p>Links:</p>
 <ul>
-<li>Main metric <a href="https://github.com/cncf/devstats/blob/master/metrics/shared/project_developer_stats.sql" target="_blank">SQL file</a>.</li>
-<li>Approves metric <a href="https://github.com/cncf/devstats/blob/master/metrics/kubernetes/hist_approvers.sql" target="_blank">SQL file</a>.</li>
-<li>Reviews metric <a href="https://github.com/cncf/devstats/blob/master/metrics/kubernetes/hist_reviewers.sql" target="_blank">SQL file</a>.</li>
-<li>TSDB <a href="https://github.com/cncf/devstats/blob/master/metrics/kubernetes/metrics.yaml" target="_blank">series definition</a>. Search for <code>Developer activity</code></li>
-<li>Grafana dashboard <a href="https://github.com/cncf/devstats/blob/master/grafana/dashboards/kubernetes/developer-activity-counts-by-repository-group.json" target="_blank">JSON</a>.</li>
+<li>Metric <a href="https://github.com/cncf/devstats/blob/master/metrics/shared/project_developer_stats.sql" target="_blank">SQL file</a>.</li>
+<li>TSDB <a href="https://github.com/cncf/devstats/blob/master/metrics/shared/metrics.yaml" target="_blank">series definition</a>. Search for <code>Developer summary</code></li>
+<li>Grafana dashboard <a href="https://github.com/cncf/devstats/blob/master/grafana/dashboards/[[lower_name]]/developer-activity-counts-by-repository-group-table.json" target="_blank">JSON</a>.</li>
 </ul>
 <h1 id="description">Description</h1>
 <ul>

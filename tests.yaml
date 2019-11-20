@@ -327,6 +327,8 @@ projects:
         expected:
           - ["iopened,All", '8.00']
           - ["iopened,Group", '4.00']
+          - ["propened,All", '4.00']
+          - ["propened,Group", '4.00']
           - ["iopened,Mono-group", '2.00']
         data: KubernetesIssuesMetric
       - metric: issues_closed
@@ -342,6 +344,8 @@ projects:
         expected:
           - ["iclosed,All", '4.00']
           - ["iclosed,Group", '2.00']
+          - ["prclosed,All", '2.00']
+          - ["prclosed,Group", '2.00']
           - ["iclosed,Mono-group", '1.00']
         data: KubernetesIssuesMetric
       - metric: num_stats
@@ -711,13 +715,13 @@ projects:
         period: 1 month
         expected:
           - ["hcom,Commenters", "All", 3]
-          - ["hcom,Commenters", "Company2", 2]
-          - ["hcom,Commenters", "Company1", 1]
+          - ["hcom,Commenters", "Company3", 2]
+          - ["hcom,Commenters", "Company2", 1]
           - ["hcom,Comments", "All", 3]
-          - ["hcom,Comments", "Company2", 2]
-          - ["hcom,Comments", "Company1", 1]
+          - ["hcom,Comments", "Company3", 2]
+          - ["hcom,Comments", "Company2", 1]
           - ["hcom,Commit commenters", "All", 1]
-          - ["hcom,Commit commenters", "Company1", 1]
+          - ["hcom,Commit commenters", "Company3", 1]
           - ["hcom,Commits", "All", 4]
           - ["hcom,Commits", "Company1", 2]
           - ["hcom,Commits", "Company2", 2]
@@ -725,18 +729,22 @@ projects:
           - ["hcom,Committers", "Company1", 2]
           - ["hcom,Committers", "Company2", 2]
           - ["hcom,Contributions", "All", 6]
-          - ["hcom,Contributions", "Company1", 4]
+          - ["hcom,Contributions", "Company1", 2]
           - ["hcom,Contributions", "Company2", 2]
-          - ["hcom,Contributors", "All", 4]
+          - ["hcom,Contributions", "Company3", 2]
+          - ["hcom,Contributors", "All", 6]
           - ["hcom,Contributors", "Company1", 2]
           - ["hcom,Contributors", "Company2", 2]
+          - ["hcom,Contributors", "Company3", 2]
           - ["hcom,Events", "All", 8]
-          - ["hcom,Events", "Company1", 4]
-          - ["hcom,Events", "Company2", 4]
+          - ["hcom,Events", "Company1", 2]
+          - ["hcom,Events", "Company2", 2]
+          - ["hcom,Events", "Company3", 2]
+          - ["hcom,Events", "Company4", 2]
           - ["hcom,Forkers", "All", 1]
-          - ["hcom,Forkers", "Company2", 1]
+          - ["hcom,Forkers", "Company4", 1]
           - ["hcom,Issue commenters", "All", 1]
-          - ["hcom,Issue commenters", "Company1", 1]
+          - ["hcom,Issue commenters", "Company3", 1]
           - ["hcom,Issue creators", "All", 1]
           - ["hcom,Issue creators", "Company1", 1]
           - ["hcom,Issues", "All", 2]
@@ -752,8 +760,10 @@ projects:
           - ["hcom,Repositories", "All", 4]
           - ["hcom,Repositories", "Company1", 2]
           - ["hcom,Repositories", "Company2", 2]
+          - ["hcom,Repositories", "Company3", 2]
+          - ["hcom,Repositories", "Company4", 2]
           - ["hcom,Watchers", "All", 1]
-          - ["hcom,Watchers", "Company2", 1]
+          - ["hcom,Watchers", "Company4", 1]
         replaces:
             - ['{{period:c.dup_created_at}}', 'true']
             - ['{{period:e.created_at}}', 'true']
@@ -776,71 +786,71 @@ projects:
         n: 1
         period: 1 month
         expected:
-            - ["hdev_active_repos,All_All", "A1", 1]
-            - ["hdev_active_repos,All_All", "A2", 1]
-            - ["hdev_active_repos,All_All", "A3", 1]
-            - ["hdev_active_repos,All_All", "A4", 1]
-            - ["hdev_active_repos,All_All", "A5", 1]
-            - ["hdev_active_repos,All_All", "A6", 1]
-            - ["hdev_active_repos,All_All", "A7", 1]
-            - ["hdev_active_repos,All_All", "A8", 1]
-            - ["hdev_active_repos,Group1_All", "A3", 1]
-            - ["hdev_active_repos,Group1_All", "A4", 1]
-            - ["hdev_active_repos,Group1_All", "A7", 1]
-            - ["hdev_active_repos,Group1_All", "A8", 1]
-            - ["hdev_active_repos,Group2_All", "A2", 1]
-            - ["hdev_active_repos,Group2_All", "A6", 1]
-            - ["hdev_comments,All_All", "A2", 1]
-            - ["hdev_comments,All_All", "A3", 1]
-            - ["hdev_comments,All_All", "A4", 1]
-            - ["hdev_comments,Group1_All", "A3", 1]
-            - ["hdev_comments,Group1_All", "A4", 1]
-            - ["hdev_comments,Group2_All", "A2", 1]
-            - ["hdev_commit_comments,All_All", "A6", 1]
-            - ["hdev_commit_comments,Group2_All", "A6", 1]
-            - ["hdev_commits,All_All", "A1", 1]
-            - ["hdev_commits,All_All", "A2", 1]
-            - ["hdev_commits,All_All", "A3", 1]
-            - ["hdev_commits,All_All", "A4", 1]
-            - ["hdev_commits,Group1_All", "A3", 1]
-            - ["hdev_commits,Group1_All", "A4", 1]
-            - ["hdev_commits,Group2_All", "A2", 1]
-            - ["hdev_contributions,All_All", "A1", 1]
-            - ["hdev_contributions,All_All", "A2", 1]
-            - ["hdev_contributions,All_All", "A3", 1]
-            - ["hdev_contributions,All_All", "A4", 1]
-            - ["hdev_contributions,All_All", "A5", 1]
-            - ["hdev_contributions,All_All", "A6", 1]
-            - ["hdev_contributions,Group1_All", "A3", 1]
-            - ["hdev_contributions,Group1_All", "A4", 1]
-            - ["hdev_contributions,Group2_All", "A2", 1]
-            - ["hdev_contributions,Group2_All", "A6", 1]
-            - ["hdev_events,All_All", "A1", 1]
-            - ["hdev_events,All_All", "A2", 1]
-            - ["hdev_events,All_All", "A3", 1]
-            - ["hdev_events,All_All", "A4", 1]
-            - ["hdev_events,All_All", "A5", 1]
-            - ["hdev_events,All_All", "A6", 1]
-            - ["hdev_events,All_All", "A7", 1]
-            - ["hdev_events,All_All", "A8", 1]
-            - ["hdev_events,Group1_All", "A3", 1]
-            - ["hdev_events,Group1_All", "A4", 1]
-            - ["hdev_events,Group1_All", "A7", 1]
-            - ["hdev_events,Group1_All", "A8", 1]
-            - ["hdev_events,Group2_All", "A2", 1]
-            - ["hdev_events,Group2_All", "A6", 1]
-            - ["hdev_issue_comments,All_All", "A5", 1]
-            - ["hdev_issues,All_All", "A3", 1]
-            - ["hdev_issues,All_All", "A4", 1]
-            - ["hdev_issues,Group1_All", "A3", 1]
-            - ["hdev_issues,Group1_All", "A4", 1]
-            - ["hdev_prs,All_All", "A1", 1]
-            - ["hdev_prs,All_All", "A2", 1]
-            - ["hdev_prs,Group2_All", "A2", 1]
-            - ["hdev_pushes,All_All", "A3", 1]
-            - ["hdev_pushes,Group1_All", "A3", 1]
-            - ["hdev_review_comments,All_All", "A4", 1]
-            - ["hdev_review_comments,Group1_All", "A4", 1]
+            - ["hdev_active_repos,All_All", "A1$$$Company1", 1]
+            - ["hdev_active_repos,All_All", "A2$$$Company1", 1]
+            - ["hdev_active_repos,All_All", "A3$$$Company2", 1]
+            - ["hdev_active_repos,All_All", "A4$$$Company2", 1]
+            - ["hdev_active_repos,All_All", "A5$$$Company3", 1]
+            - ["hdev_active_repos,All_All", "A6$$$Company3", 1]
+            - ["hdev_active_repos,All_All", "A7$$$Company4", 1]
+            - ["hdev_active_repos,All_All", "A8$$$Company4", 1]
+            - ["hdev_active_repos,Group1_All", "A3$$$Company2", 1]
+            - ["hdev_active_repos,Group1_All", "A4$$$Company2", 1]
+            - ["hdev_active_repos,Group1_All", "A7$$$Company4", 1]
+            - ["hdev_active_repos,Group1_All", "A8$$$Company4", 1]
+            - ["hdev_active_repos,Group2_All", "A2$$$Company1", 1]
+            - ["hdev_active_repos,Group2_All", "A6$$$Company3", 1]
+            - ["hdev_comments,All_All", "A4$$$Company2", 1]
+            - ["hdev_comments,All_All", "A5$$$Company3", 1]
+            - ["hdev_comments,All_All", "A6$$$Company3", 1]
+            - ["hdev_comments,Group1_All", "A4$$$Company2", 1]
+            - ["hdev_comments,Group1_All", "A5$$$Company3", 1]
+            - ["hdev_comments,Group2_All", "A6$$$Company3", 1]
+            - ["hdev_commit_comments,All_All", "A6$$$Company3", 1]
+            - ["hdev_commit_comments,Group2_All", "A6$$$Company3", 1]
+            - ["hdev_commits,All_All", "A1$$$Company1", 1]
+            - ["hdev_commits,All_All", "A2$$$Company1", 1]
+            - ["hdev_commits,All_All", "A3$$$Company2", 1]
+            - ["hdev_commits,All_All", "A4$$$Company2", 1]
+            - ["hdev_commits,Group1_All", "A3$$$Company2", 1]
+            - ["hdev_commits,Group1_All", "A4$$$Company2", 1]
+            - ["hdev_commits,Group2_All", "A2$$$Company1", 1]
+            - ["hdev_contributions,All_All", "A1$$$Company1", 1]
+            - ["hdev_contributions,All_All", "A2$$$Company1", 1]
+            - ["hdev_contributions,All_All", "A3$$$Company2", 1]
+            - ["hdev_contributions,All_All", "A4$$$Company2", 1]
+            - ["hdev_contributions,All_All", "A5$$$Company3", 1]
+            - ["hdev_contributions,All_All", "A6$$$Company3", 1]
+            - ["hdev_contributions,Group1_All", "A3$$$Company2", 1]
+            - ["hdev_contributions,Group1_All", "A4$$$Company2", 1]
+            - ["hdev_contributions,Group2_All", "A2$$$Company1", 1]
+            - ["hdev_contributions,Group2_All", "A6$$$Company3", 1]
+            - ["hdev_events,All_All", "A1$$$Company1", 1]
+            - ["hdev_events,All_All", "A2$$$Company1", 1]
+            - ["hdev_events,All_All", "A3$$$Company2", 1]
+            - ["hdev_events,All_All", "A4$$$Company2", 1]
+            - ["hdev_events,All_All", "A5$$$Company3", 1]
+            - ["hdev_events,All_All", "A6$$$Company3", 1]
+            - ["hdev_events,All_All", "A7$$$Company4", 1]
+            - ["hdev_events,All_All", "A8$$$Company4", 1]
+            - ["hdev_events,Group1_All", "A3$$$Company2", 1]
+            - ["hdev_events,Group1_All", "A4$$$Company2", 1]
+            - ["hdev_events,Group1_All", "A7$$$Company4", 1]
+            - ["hdev_events,Group1_All", "A8$$$Company4", 1]
+            - ["hdev_events,Group2_All", "A2$$$Company1", 1]
+            - ["hdev_events,Group2_All", "A6$$$Company3", 1]
+            - ["hdev_issue_comments,All_All", "A5$$$Company3", 1]
+            - ["hdev_issues,All_All", "A3$$$Company2", 1]
+            - ["hdev_issues,All_All", "A4$$$Company2", 1]
+            - ["hdev_issues,Group1_All", "A3$$$Company2", 1]
+            - ["hdev_issues,Group1_All", "A4$$$Company2", 1]
+            - ["hdev_prs,All_All", "A1$$$Company1", 1]
+            - ["hdev_prs,All_All", "A2$$$Company1", 1]
+            - ["hdev_prs,Group2_All", "A2$$$Company1", 1]
+            - ["hdev_pushes,All_All", "A3$$$Company2", 1]
+            - ["hdev_pushes,Group1_All", "A3$$$Company2", 1]
+            - ["hdev_review_comments,All_All", "A4$$$Company2", 1]
+            - ["hdev_review_comments,Group1_All", "A4$$$Company2", 1]
         replaces:
             - ['{{period:c.dup_created_at}}', 'true']
             - ['{{period:e.created_at}}', 'true']
@@ -849,12 +859,17 @@ projects:
             - ['{{period:created_at}}', 'true']
             - ['{{period:dup_created_at}}', 'true']
             - ['>= 10', '>= 0']
+            - ['>= 20', '>= 0']
             - ['>= 30', '>= 0']
+            - ['>= 50', '>= 0']
             - ['>= 100', '>= 0']
+            - ['>= 200', '>= 0']
             - ['> 1', '> 0']
             - ['> 2', '> 0']
             - ['> 5', '> 0']
             - ['> 10', '> 0']
+            - ['> 20', '> 0']
+            - ['> 50', '> 0']
         data: KubernetesProjectStatsMetric
       - metric: activity_repo_groups
         additional_setup_funcs:
@@ -1073,13 +1088,13 @@ projects:
         n: 1
         period: 1 week
         expected:
-          - ["hdev_reviews,All_All", Actor 1, 5]
-          - ["hdev_reviews,All_All", Actor 2, 4]
-          - ["hdev_reviews,Group_All", Actor 2, 4]
-          - ["hdev_reviews,All_All", Actor 3, 2]
-          - ["hdev_reviews,Group_All", Actor 1, 2]
-          - ["hdev_reviews,Group_All", Actor 3, 1]
-          - ["hdev_reviews,Overruled_All", Actor 1, 1]
+          - ["hdev_reviews,All_All", 'Actor 1$$$Company1', 5]
+          - ["hdev_reviews,All_All", 'Actor 2$$$Company1', 4]
+          - ["hdev_reviews,Group_All", 'Actor 2$$$Company1', 4]
+          - ["hdev_reviews,All_All", 'Actor 3$$$Company2', 2]
+          - ["hdev_reviews,Group_All", 'Actor 1$$$Company1', 2]
+          - ["hdev_reviews,Group_All", 'Actor 3$$$Company2', 1]
+          - ["hdev_reviews,Overruled_All", 'Actor 1$$$Company1', 1]
         data: KubernetesReviewersHistMetric
       - metric: hist_approvers
         additional_setup_funcs:
@@ -1090,12 +1105,12 @@ projects:
         n: 1
         period: 1 week
         expected:
-          - ["hdev_approves,All_All", Actor 1, 2]
-          - ["hdev_approves,All_All", Actor 3, 2]
-          - ["hdev_approves,All_All", Actor 2, 1]
-          - ["hdev_approves,Group_All", Actor 1, 1]
-          - ["hdev_approves,Group_All", Actor 2, 1]
-          - ["hdev_approves,Overruled_All", Actor 3, 1]
+          - ["hdev_approves,All_All", 'Actor 1$$$Company1', 2]
+          - ["hdev_approves,All_All", 'Actor 3$$$Company2', 2]
+          - ["hdev_approves,All_All", 'Actor 2$$$Company1', 1]
+          - ["hdev_approves,Group_All", 'Actor 1$$$Company1', 1]
+          - ["hdev_approves,Group_All", 'Actor 2$$$Company1', 1]
+          - ["hdev_approves,Overruled_All", 'Actor 3$$$Company2', 1]
         data: KubernetesApproversHistMetric
       - metric: hist_pr_authors
         additional_setup_funcs:
@@ -1239,13 +1254,14 @@ projects:
 data:
   KubernetesCountryGenderMetric:
     # append to actors (localize and genderize data)
-    # country_id, country_name, tz, tz_offset, sex, sex_prob
+    # country_id, country_name, tz, tz_offset,
+    # sex, sex_prob, age
     actors_append:
-      - ['pl', 'Poland', 'Europe/Warsaw', 120, 'm', 1]
-      - ['ru', 'Russia', 'Europe/Moscow', 240, 'f', 0.92]
-      - [null, null, null, null, null, null]
-      - ['cn', 'China', 'Asia/Shanghai', 480, 'm', 0.69]
-      - ['us', 'United States', 'America/Los_Angeles', -420, 'm', 0.99]
+      - ['pl', 'Poland', 'Europe/Warsaw', 120, 'm', 1, 37]
+      - ['ru', 'Russia', 'Europe/Moscow', 240, 'f', 0.92, 37]
+      - [null, null, null, null, null, null, null]
+      - ['cn', 'China', 'Asia/Shanghai', 480, 'm', 0.49, 37]
+      - ['us', 'United States', 'America/Los_Angeles', -420, 'm', 0.99, 37]
     # id, login, name
     actors:
       - [1, lukaszgryglicki, Łukasz Gryglicki]
@@ -1631,13 +1647,14 @@ data:
         - [18, 18, 0, Body18, null, '2018-01-23T12:00:00Z', 4, open, PR4, '2018-01-23T12:00:00Z', 2, 2, A2, 1, R1, PullRequestEvent, true]
   KubernetesNewContributorsMetric:
     # append to actors (localize and genderize data)
-    # country_id, country_name, tz, tz_offset, sex, sex_prob
+    # country_id, country_name, tz, tz_offset,
+    # sex, sex_prob, age
     actors_append:
-      - ['pl', 'Poland', 'Europe/Warsaw', 120, 'm', 1]
-      - ['ru', 'Russia', 'Europe/Moscow', 240, 'f', 0.92]
-      - [null, null, null, null, null, null]
-      - ['cn', 'China', 'Asia/Shanghai', 480, 'm', 0.69]
-      - ['us', 'United States', 'America/Los_Angeles', -420, 'm', 0.99]
+      - ['pl', 'Poland', 'Europe/Warsaw', 120, 'm', 1, 37]
+      - ['ru', 'Russia', 'Europe/Moscow', 240, 'f', 0.92, 37]
+      - [null, null, null, null, null, null, null]
+      - ['cn', 'China', 'Asia/Shanghai', 480, 'm', 0.49, 37]
+      - ['us', 'United States', 'America/Los_Angeles', -420, 'm', 0.99, 37]
     # id, login, name
     actors:
       - [1, lukaszgryglicki, Łukasz Gryglicki]
@@ -1776,21 +1793,21 @@ data:
       - [2, PullRequestEvent, 2, 3, true, '1980-01-01T12:00:00Z', A2, R3, null]
       - [3, PushEvent, 3, 2, true, '1980-01-01T12:00:00Z', A3, R2, null]
       - [4, PullRequestReviewCommentEvent, 4, 1, true, '1980-01-01T12:00:00Z', A4, R1, null]
-      - [5, IssueCommentEvent, 1, 4, true, '1980-01-01T12:00:00Z', A5, R4, null]
-      - [6, CommitCommentEvent, 2, 3, true, '1980-01-01T12:00:00Z', A6, R3, null]
-      - [7, WatchEvent, 3, 2, true, '1980-01-01T12:00:00Z', A7, R2, null]
-      - [8, ForkEvent, 4, 1, true, '1980-01-01T12:00:00Z', A8, R1, null]
+      - [5, IssueCommentEvent, 5, 4, true, '1980-01-01T12:00:00Z', A5, R4, null]
+      - [6, CommitCommentEvent, 6, 3, true, '1980-01-01T12:00:00Z', A6, R3, null]
+      - [7, WatchEvent, 7, 2, true, '1980-01-01T12:00:00Z', A7, R2, null]
+      - [8, ForkEvent, 8, 1, true, '1980-01-01T12:00:00Z', A8, R1, null]
       - [9, IssuesEvent, 101, 4, true, '1980-01-01T12:00:00Z', googlebot, R4, null]
       - [10, PullRequestEvent, 102, 3, true, '1980-01-01T12:00:00Z', coveralls, R3, null]
       - [11, PushEvent, 103, 2, true, '1980-01-01T12:00:00Z', 'ro[bot]nik', R2, null]
     # append comment's user logins
-    comments_append: [[A4], [A3], [A2]]
+    comments_append: [[A4], [A5], [A6]]
     # id, event_id, body, created_at, user_id, repo_id, repo_name, actor_id,
     # actor_login, type
     comments:
       - [1, 4, Com1, '1980-01-01T12:00:00Z', 4, 1, R1, 4, A4, PullRequestReviewCommentEvent]
-      - [2, 5, Com2, '1980-01-01T12:00:00Z', 3, 2, R2, 3, A3, IssueCommentEvent]
-      - [3, 6, Com3, '1980-01-01T12:00:00Z', 2, 3, R3, 2, A2, CommitCommentEvent]
+      - [2, 5, Com2, '1980-01-01T12:00:00Z', 5, 2, R2, 5, A5, IssueCommentEvent]
+      - [3, 6, Com3, '1980-01-01T12:00:00Z', 6, 3, R3, 6, A6, CommitCommentEvent]
     # append milestone_id=null to all rows in "issues"
     issues_append: [[null, '2017-01-01T12:00:00Z']]
     # id, event_id, assignee_id, body, closed_at, created_at, number, state,
@@ -1807,14 +1824,22 @@ data:
       - [2, 'Company1', 'Company1', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
       - [3, 'Company2', 'Company2', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
       - [4, 'Company2', 'Company2', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [5, 'Company3', 'Compnay3', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [6, 'Company3', 'Company3', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [7, 'Company4', 'Company4', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [8, 'Company4', 'Company4', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
     # append to actors (localize and genderize data) - not needed - nulls
-    actors_append: [[null, null, null, null, null, null]]
+    actors_append: [[null, null, null, null, null, null, null]]
     # id, login, name
     actors:
       - [1, A1, Actor 1]
       - [2, A2, Actor 2]
       - [3, A3, Actor 3]
       - [4, A4, Actor 4]
+      - [5, A5, Actor 5]
+      - [6, A6, Actor 6]
+      - [7, A7, Actor 7]
+      - [8, A8, Actor 8]
   KubernetesFirstNonAuthorActivityMetric:
     # id, name, org_id, org_login, repo_group
     repos:
@@ -4115,7 +4140,7 @@ data:
       - [2, company1, company1, '1980-01-01T12:00:00Z', '1980-01-01T12:00:00Z']
       - [3, company2, company2, '1980-01-01T12:00:00Z', '1980-01-01T12:00:00Z']
     # append to actors (localize and genderize data) - not needed - nulls
-    actors_append: [[null, null, null, null, null, null]]
+    actors_append: [[null, null, null, null, null, null, null]]
     # id, login, name
     actors:
       - [1, Actor 1, Name 1]
@@ -4294,7 +4319,7 @@ data:
         - T
   KubernetesOnlyActorsMetric:
     # append to actors (localize and genderize data) - not needed - nulls
-    actors_append: [[null, null, null, null, null, null]]
+    actors_append: [[null, null, null, null, null, null, null]]
     # id, login, name
     actors:
       - [1, A1, Actor 1]
@@ -4302,7 +4327,7 @@ data:
       - [3, A3, Actor 3]
   KubernetesOnlyActorsAndReposMetric:
     # append to actors (localize and genderize data) - not needed - nulls
-    actors_append: [[null, null, null, null, null, null]]
+    actors_append: [[null, null, null, null, null, null, null]]
     # id, login, name
     actors:
       - [1, A1, Actor 1]
@@ -4328,7 +4353,7 @@ data:
       - [3, company3, '', '2017-09-18T00:00:00Z', '2017-09-24T00:00:00Z']
       - [3, company4, '', '2017-09-24T00:00:00Z', '2020-01-01T00:00:00Z']
     # append to actors (localize and genderize data) - not needed - nulls
-    actors_append: [[null, null, null, null, null, null]]
+    actors_append: [[null, null, null, null, null, null, null]]
     # id, login, name
     actors:
       - [1, A1, Actor 1]
@@ -4366,7 +4391,7 @@ data:
       - [3, company3, '', '2017-09-18T00:00:00Z', '2017-09-24T00:00:00Z']
       - [3, company4, '', '2017-09-24T00:00:00Z', '2020-01-01T00:00:00Z']
     # append to actors (localize and genderize data) - not needed - nulls
-    actors_append: [[null, null, null, null, null, null]]
+    actors_append: [[null, null, null, null, null, null, null]]
     # id, login, name
     actors:
       - [1, A1, Actor 1]
@@ -4397,148 +4422,28 @@ data:
       - [2, PushEvent, 1, 2, true, '2018-02-09T12:00:00Z', A2, R3, null]
       - [3, PushEvent, 1, 3, true, '2018-02-09T12:00:00Z', A3, R2, null]
       - [4, PushEvent, 1, 4, true, '2018-02-09T12:00:00Z', A4, R1, null]
+    # prid, eid, uid, merged_id, assignee_id, num, state, title, body,
+    # created_at, closed_at, merged_at, merged
+    # repo_id, repo_name, actor_id, actor_login, updated_at
+    prs:
+      - [9, 0, 0, 0, 0, 1, merged, PR1, PR1, '2017-10-01T00:00:00Z', '2017-10-02T00:00:00Z', '2017-10-02T00:00:00Z', true, 1, R1, 0, '', '2018-02-10T00:00:00Z']
+      - [10, 0, 0, 0, 0, 2, closed, PR2, PR2, '2017-10-02T00:00:00Z', '2017-10-03T00:00:00Z', null, true, 2, R2, 0, '', '2018-02-10T00:00:00Z']
+      - [11, 0, 0, 0, 0, 3, open, PR3, PR3, '2017-10-05T00:00:00Z', null, null, true, 1, R1, 0, '', '2018-02-10T00:00:00Z']
+      - [12, 0, 0, 0, 0, 4, open, PR4, PR4, '2017-10-06T00:00:00Z', null, null, true, 2, R2, 0, '', '2018-02-10T00:00:00Z']
     # append milestone_id=null to all rows in "issues"
     issues_append: [[null, '2017-01-01T12:00:00Z']]
     # id, event_id, assignee_id, body, closed_at, created_at, number, state,
     # title, updated_at, user_id, dup_actor_id, dup_actor_login, dup_repo_id,
     # dup_repo_name, dup_type, is_pull_request
     issues:
-      - - 1
-        - 0
-        - 0
-        - ""
-        - 2017-10-02T00:00:00Z
-        - 2017-10-01T00:00:00Z
-        - 1
-        - closed
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 1
-        - R1
-        - T
-        - false
-      - - 2
-        - 0
-        - 0
-        - ""
-        - 2017-10-03T00:00:00Z
-        - 2017-10-02T00:00:00Z
-        - 1
-        - closed
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 2
-        - R2
-        - T
-        - false
-      - - 3
-        - 0
-        - 0
-        - ""
-        - 2017-10-04T00:00:00Z
-        - 2017-10-03T00:00:00Z
-        - 1
-        - closed
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 3
-        - R3
-        - T
-        - false
-      - - 4
-        - 0
-        - 0
-        - ""
-        - 2017-10-05T00:00:00Z
-        - 2017-10-04T00:00:00Z
-        - 1
-        - closed
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 4
-        - R4
-        - T
-        - false
-      - - 5
-        - 0
-        - 0
-        - ""
-        - null
-        - 2017-10-05T00:00:00Z
-        - 1
-        - open
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 1
-        - R1
-        - T
-        - false
-      - - 6
-        - 0
-        - 0
-        - ""
-        - null
-        - 2017-10-06T00:00:00Z
-        - 1
-        - open
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 2
-        - R2
-        - T
-        - false
-      - - 7
-        - 0
-        - 0
-        - ""
-        - null
-        - 2017-10-07T00:00:00Z
-        - 1
-        - open
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 3
-        - R3
-        - T
-        - false
-      - - 8
-        - 0
-        - 0
-        - ""
-        - null
-        - 2017-10-08T00:00:00Z
-        - 1
-        - open
-        - ""
-        - 1980-01-01T12:00:00Z
-        - 0
-        - 0
-        - ""
-        - 4
-        - R4
-        - T
-        - false
+      - [1, 0, 0, '', '2017-10-02T00:00:00Z', '2017-10-01T00:00:00Z', 1, closed, '', '1980-01-01T12:00:00Z', 0, 0, '', 1, R1, T, false]
+      - [2, 0, 0, '', '2017-10-03T00:00:00Z', '2017-10-02T00:00:00Z', 1, closed, '', '1980-01-01T12:00:00Z', 0, 0, '', 2, R2, T, false]
+      - [3, 0, 0, '', '2017-10-04T00:00:00Z', '2017-10-03T00:00:00Z', 1, closed, '', '1980-01-01T12:00:00Z', 0, 0, '', 3, R3, T, false]
+      - [4, 0, 0, '', '2017-10-05T00:00:00Z', '2017-10-04T00:00:00Z', 1, closed, '', '1980-01-01T12:00:00Z', 0, 0, '', 4, R4, T, false]
+      - [5, 0, 0, '', null, '2017-10-05T00:00:00Z', 1, open, '', '1980-01-01T12:00:00Z', 0, 0, '', 1, R1, T, false]
+      - [6, 0, 0, '', null, '2017-10-06T00:00:00Z', 1, open, '', '1980-01-01T12:00:00Z', 0, 0, '', 2, R2, T, false]
+      - [7, 0, 0, '', null, '2017-10-07T00:00:00Z', 1, open, '', '1980-01-01T12:00:00Z', 0, 0, '', 3, R3, T, false]
+      - [8, 0, 0, '', null, '2017-10-08T00:00:00Z', 1, open, '', '1980-01-01T12:00:00Z', 0, 0, '', 4, R4, T, false]
     # iid, eid, lid, actor_id, actor_login, repo_id, repo_name,
     # ev_type, ev_created_at, issue_number, label_name
     issues_labels:
@@ -5598,6 +5503,11 @@ data:
         - '@kubernetes/sig-group2-feature-requests out of test range'
         - 2017-08-11T00:00:00Z
   KubernetesApproversHistMetric:
+    # actor_id, company_name, dt_from, dt_to
+    affiliations:
+      - [1, 'Company1', 'Compnay1', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [2, 'Company1', 'Company1', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [3, 'Company2', 'Company2', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
     # id, name, org_id, org_login, repo_group
     repos:
       - [1, Repo 1, 1, Org, Group]
@@ -5693,6 +5603,11 @@ data:
           Line 2
         - 1980-01-01T12:00:00Z
   KubernetesReviewersHistMetric:
+    # actor_id, company_name, dt_from, dt_to
+    affiliations:
+      - [1, 'Company1', 'Compnay1', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [2, 'Company1', 'Company1', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
+      - [3, 'Company2', 'Company2', '1990-01-01T12:00:00Z', '2030-01-01T12:00:00Z']
     # id, name, org_id, org_login, repo_group
     repos:
       - [1, Repo 1, 1, Org, Group]
